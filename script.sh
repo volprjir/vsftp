@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author Jiri Volprecht
 
 if [ "$#" -ne 2 ]; then
 	echo "Incorrect number of arguments!
@@ -13,7 +14,10 @@ PASS=$2
 
 DIR_TO_CREATE="/var/www/$USERNAME"
 
-mkdir -p $DIR_TO_CREATE
+if [ -d "$DIR_TO_CREATE" ]; then
+	mkdir -p $DIR_TO_CREATE
+fi
+
 chmod 755 $DIR_TO_CREATE
 chown $USER:ftpu $DIR_TO_CREATE
 
