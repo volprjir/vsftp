@@ -8,6 +8,7 @@ if [ "$#" -ne 2 ]; then
 fi
 
 groupadd ftpu
+service sshd restart
 
 USERNAME=$1
 PASS=$2
@@ -18,8 +19,8 @@ if [ ! -d "$DIR_TO_CREATE" ]; then
 	mkdir -p $DIR_TO_CREATE
 fi
 
-chmod 775 $DIR_TO_CREATE
-chown $USER:ftpu $DIR_TO_CREATE
+chmod -R 775 $DIR_TO_CREATE
+chown -R $USER:ftpu $DIR_TO_CREATE
 
 useradd -g "ftpu" -d "$DIR_TO_CREATE" -s /bin/bash $USERNAME 
 echo "$USERNAME:$PASS" | chpasswd
