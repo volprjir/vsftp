@@ -18,7 +18,7 @@ if [ ! -d "$DIR_TO_CREATE" ]; then
 	mkdir -p $DIR_TO_CREATE
 fi
 
-chmod 755 $DIR_TO_CREATE
+chmod 775 $DIR_TO_CREATE
 chown $USER:ftpu $DIR_TO_CREATE
 
 useradd -g "ftpu" -d "$DIR_TO_CREATE" -s /bin/bash $USERNAME 
