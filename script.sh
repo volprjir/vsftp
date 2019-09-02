@@ -14,7 +14,7 @@ PASS=$2
 
 DIR_TO_CREATE="/var/www/$USERNAME"
 
-if [ -d "$DIR_TO_CREATE" ]; then
+if [ ! -d "$DIR_TO_CREATE" ]; then
 	mkdir -p $DIR_TO_CREATE
 fi
 
